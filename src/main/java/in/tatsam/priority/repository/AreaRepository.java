@@ -8,6 +8,10 @@ import org.springframework.stereotype.Repository;
 import in.tatsam.priority.model.Area;
 
 @Repository
-public interface AreaRepository extends JpaRepository<Area, Integer> {
+public interface AreaRepository extends JpaRepository<Area, Long> {
+	Area findByAreaId(long id);
+
+	Area findByName(String areaName);
+
 	List<Area> findAll();
 }

@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 public class Area implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int areaId;
+	private long areaId;
 	@Column(unique = true, nullable = false)
 	private String name;
 

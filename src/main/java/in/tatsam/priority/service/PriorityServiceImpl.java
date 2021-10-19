@@ -50,7 +50,9 @@ public class PriorityServiceImpl implements PriorityService {
 	public User addUser(User user) {
 		log.info("coming to addUser method in service user - " + user);
 		User user1 = userRepository.findByEmailId(user.getEmailId());
-		user.setEmailId(user1.getEmailId());
+		if (null != user1) {
+			user.setEmailId(user1.getEmailId());
+		}
 		User afterUserSave = new User();
 		try {
 			afterUserSave = userRepository.save(user);
