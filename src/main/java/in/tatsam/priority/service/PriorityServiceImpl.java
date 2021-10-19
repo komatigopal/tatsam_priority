@@ -11,7 +11,6 @@ import in.tatsam.priority.model.Area;
 import in.tatsam.priority.model.Priority;
 import in.tatsam.priority.model.User;
 import in.tatsam.priority.repository.AreaRepository;
-import in.tatsam.priority.repository.PriorityRepository;
 import in.tatsam.priority.repository.UserRepository;
 import lombok.extern.log4j.Log4j2;
 
@@ -24,9 +23,6 @@ public class PriorityServiceImpl implements PriorityService {
 
 	@Autowired
 	private UserRepository userRepository;
-
-	@Autowired
-	private PriorityRepository priorityRepository;
 
 	public List<Area> getAreas() {
 		log.info("coming to getAreas in service layer");
