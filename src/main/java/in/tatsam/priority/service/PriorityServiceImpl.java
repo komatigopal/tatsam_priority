@@ -37,10 +37,12 @@ public class PriorityServiceImpl implements PriorityService {
 
 	public Area addArea(String areaName) {
 		log.info("coming to addArea method in service areaName - " + areaName);
-		Area area = new Area();
+		Area area = areaRepository.findByName(areaName);
 		try {
-			area.setName(areaName);
-			area = areaRepository.save(area);
+			if (null == area) {
+				area = Area.builder().name(areaName).build();
+				area = areaRepository.save(area);
+			}
 		} catch (Exception e) {
 			log.error(e);
 		}
